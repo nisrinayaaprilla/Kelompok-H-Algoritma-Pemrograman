@@ -11,25 +11,22 @@ import math
 
 def hitung_jarak(x, y):
     return math.sqrt(
-        (x[0] - y[0]) ** 2 +
-        (x[1] - y[1]) ** 2 +
-        (x[2] - y[2]) ** 2
-    )
+        (x[0] - y[0]) ** 2 + (x[1] - y[1]) ** 2 + (x[2] - y[2]) ** 2) #Menghitung panjang vektor dari titik x ke titik y
 
 a = (2, 1, 3)
 b = (1, -4, 6)
-c = (-2, 3, -2)
+c = (-2, 3, -2) #Memberi nilai pada titik titik di cluster a,b, dan c
 
 try:
     x1 = float(input("Masukkan x1: "))
     x2 = float(input("Masukkan x2: "))
-    x3 = float(input("Masukkan x3: "))
+    x3 = float(input("Masukkan x3: ")) #Memasukkan nilai titik titik u
 
     titik_u = (x1, x2, x3)
 
     jarak_a = hitung_jarak(titik_u, a)
     jarak_b = hitung_jarak(titik_u, b)
-    jarak_c = hitung_jarak(titik_u, c)
+    jarak_c = hitung_jarak(titik_u, c) 
 
     if jarak_a < jarak_b and jarak_a < jarak_c:
         cluster = "A"
