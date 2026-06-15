@@ -7,37 +7,37 @@ Original file is located at
     https://colab.research.google.com/drive/1fZEHyuYPgEEtMT4kZF2BFOe5pG0qy4IW
 """
 
-import math
+import math                                                                                      #Mengimpor modul math untuk menggunakan fungsi matematika, seperti akar kuadrat (sqrt).
 
 # Fungsi untuk menghitung akar persamaan kuadrat
-def hitung_akar(data_koefisien):
+def hitung_akar(data_koefisien):                                                                 #Mendefinisikan fungsi bernama hitung_akar yang menerima parameter berupa data koefisien persamaan kuadrat.
 
-    nilai_a, nilai_b, nilai_c = data_koefisien
+    nilai_a, nilai_b, nilai_c = data_koefisien                                                   #Mengambil nilai koefisien a, b, dan c dari list data_koefisien lalu menyimpannya ke masing-masing variabel.
 
-    nilai_diskriminan = (nilai_b ** 2) - (4 * nilai_a * nilai_c)
+    nilai_diskriminan = (nilai_b ** 2) - (4 * nilai_a * nilai_c)                                 #Menghitung nilai diskriminan menggunakan rumus D = b² − 4ac.
 
-    if nilai_diskriminan >= 0:
+    if nilai_diskriminan >= 0:                                                                   #Memeriksa apakah diskriminan bernilai nol atau positif sehingga akar persamaan dapat dihitung sebagai bilangan real.
 
-        akar_1 = (-nilai_b + math.sqrt(nilai_diskriminan)) / (2 * nilai_a)
-        akar_2 = (-nilai_b - math.sqrt(nilai_diskriminan)) / (2 * nilai_a)
+        akar_1 = (-nilai_b + math.sqrt(nilai_diskriminan)) / (2 * nilai_a)                       #Menghitung akar pertama persamaan kuadrat menggunakan rumus kuadrat.
+        akar_2 = (-nilai_b - math.sqrt(nilai_diskriminan)) / (2 * nilai_a)                       #Menghitung akar kedua persamaan kuadrat menggunakan rumus kuadrat.
 
-        print(f"Akar pertama = {akar_1:.3f}")
-        print(f"Akar kedua   = {akar_2:.3f}")
+        print(f"Akar pertama = {akar_1:.3f}")                                                    #Menampilkan nilai akar pertama dengan format tiga angka di belakang koma.
+        print(f"Akar kedua   = {akar_2:.3f}")                                                    #Menampilkan nilai akar kedua dengan format tiga angka di belakang koma.
 
-    else:
-        print("Persamaan memiliki akar imajiner")
+    else:                                                                                        #Menjalankan perintah alternatif jika diskriminan bernilai negatif.
+        print("Persamaan memiliki akar imajiner")                                                #Menampilkan pesan bahwa persamaan memiliki akar imajiner (tidak memiliki akar real).
 
 
 # Input pengguna
-nilai_a = float(input("Masukkan koefisien a : "))
-nilai_b = float(input("Masukkan koefisien b : "))
-nilai_c = float(input("Masukkan koefisien c : "))
+nilai_a = float(input("Masukkan koefisien a : "))                                                #Membaca input koefisien a dari pengguna dan mengubahnya menjadi tipe data float.
+nilai_b = float(input("Masukkan koefisien b : "))                                                #Membaca input koefisien b dari pengguna dan mengubahnya menjadi tipe data float.
+nilai_c = float(input("Masukkan koefisien c : "))                                                #Membaca input koefisien c dari pengguna dan mengubahnya menjadi tipe data float.
 
 # List
-data_koefisien = [nilai_a, nilai_b, nilai_c]
+data_koefisien = [nilai_a, nilai_b, nilai_c]                                                     #Menyimpan ketiga koefisien ke dalam sebuah list bernama data_koefisien.
 
 # Pemanggilan fungsi
-hitung_akar(data_koefisien)
+hitung_akar(data_koefisien)                                                                      #Memanggil fungsi hitung_akar dengan parameter list koefisien untuk menghitung dan menampilkan akar persamaan kuadrat.
 
 import math
 
