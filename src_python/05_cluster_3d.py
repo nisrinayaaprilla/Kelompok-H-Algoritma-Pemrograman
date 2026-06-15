@@ -7,38 +7,38 @@ Original file is located at
     https://colab.research.google.com/notebooks/intro.ipynb
 """
 
-import math
+import math                                                           #Mengimpor modul math agar program dapat menggunakan fungsi matematika.
 
-def hitung_jarak(x, y):
+def hitung_jarak(x, y):                                               #Mendefinisikan fungsi hitung_jarak yang menerima 2 parameter berupa titik koordinat.
     return math.sqrt(
-        (x[0] - y[0]) ** 2 + (x[1] - y[1]) ** 2 + (x[2] - y[2]) ** 2) #Menghitung panjang vektor dari titik x ke titik y
+        (x[0] - y[0]) ** 2 + (x[1] - y[1]) ** 2 + (x[2] - y[2]) ** 2
+    )                                                                 #Mengembalikan hasil perhitungan jarak antara 2 titik menggunakan rumus panjang vektor.
+a = (2, 1, 3)                                                         #Menyimpan koordinat pusat cluster a ke dalam tuple.
+b = (1, -4, 6)                                                        #Menyimpan koordinat pusat cluster b ke dalam tuple.                                                     
+c = (-2, 3, -2)                                                       #Menyimpan koordinat pusat cluster c ke dalam tuple.
 
-a = (2, 1, 3)
-b = (1, -4, 6)
-c = (-2, 3, -2) #Memberi nilai pada titik titik di cluster a,b, dan c
+try:                                                                  #Memulai blok penanganan error untuk mengantisipasi input yang bukan angka.
+    x1 = float(input("Masukkan x1: "))                                #Membaca nilai x1 dari titik u dan mengubahnya menjadi tipe data float agar dapat dihitung secara matematis.
+    x2 = float(input("Masukkan x2: "))                                #Membaca nilai x2 dari titik u dan mengubahnya menjadi tipe data float agar dapat dihitung secara matematis.
+    x3 = float(input("Masukkan x3: "))                                #Membaca nilai x3 dari titik u dan mengubahnya menjadi tipe data float agar dapat dihitung secara matematis.
 
-try:
-    x1 = float(input("Masukkan x1: "))
-    x2 = float(input("Masukkan x2: "))
-    x3 = float(input("Masukkan x3: ")) #Memasukkan nilai titik titik u
+    titik_u = (x1, x2, x3)                                            #Menggabungkan ketiga titik koordinat menjadi satu tuple yang mewakili titik U.
 
-    titik_u = (x1, x2, x3)
+    jarak_a = hitung_jarak(titik_u, a)                                #Menghitung jarak antara titik u dan pusat cluster a menggunakan fungsi yang telah dibuat.
+    jarak_b = hitung_jarak(titik_u, b)                                #Menghitung jarak antara titik u dan pusat cluster b menggunakan fungsi yang telah dibuat.
+    jarak_c = hitung_jarak(titik_u, c)                                #Menghitung jarak antara titik u dan pusat cluster c menggunakan fungsi yang telah dibuat.
 
-    jarak_a = hitung_jarak(titik_u, a)
-    jarak_b = hitung_jarak(titik_u, b)
-    jarak_c = hitung_jarak(titik_u, c) 
+    if jarak_a < jarak_b and jarak_a < jarak_c:                       #Memeriksa apakah jarak ke cluster a merupakan yang paling kecil dibandingkan dua cluster lainnya.
+        cluster = "A"                                                 #Menetapkan bahwa titik u termasuk cluster a karena memiliki jarak terdekat.
+    elif jarak_b < jarak_a and jarak_b < jarak_c:                     ##Memeriksa apakah jarak ke cluster b merupakan yang paling kecil dibandingkan dua cluster lainnya. 
+        cluster = "B"                                                 #Menetapkan bahwa titik u termasuk cluster b karena memiliki jarak terdekat.
+    else:                                                             #Kemungkinan kondisi selain 2 kondisi lainnya
+        cluster = "C"                                                 #Menetapkan bahwa titik u termasuk cluster c karena memiliki jarak terdekat.
 
-    if jarak_a < jarak_b and jarak_a < jarak_c:
-        cluster = "A"
-    elif jarak_b < jarak_a and jarak_b < jarak_c:
-        cluster = "B"
-    else:
-        cluster = "C"
-
-    print(f"Jarak ke Cluster A = {jarak_a:.3f}")
-    print(f"Jarak ke Cluster B = {jarak_b:.3f}")
-    print(f"Jarak ke Cluster C = {jarak_c:.3f}")
-    print(f"Titik U termasuk Cluster {cluster}")
-
-except ValueError:
-    print("Input harus berupa angka.")
+    print(f"Jarak ke Cluster A = {jarak_a:.3f}")                      #Menampilkan jarak titik u ke cluster a dengan tiga angka di belakang koma.
+    print(f"Jarak ke Cluster B = {jarak_b:.3f}")                      #Menampilkan jarak titik u ke cluster b dengan tiga angka di belakang koma.
+    print(f"Jarak ke Cluster C = {jarak_c:.3f}")                      #Menampilkan jarak titik u ke cluster c dengan tiga angka di belakang koma.
+    print(f"Titik U termasuk Cluster {cluster}")                      #Menampilkan hasil klasifikasi cluster berdasarkan jarak terdekat.
+    
+except ValueError:                                                    #Menemukan kesalahan yang terjadi apabila pengguna memasukkan data yang bukan angka.
+    print("Input harus berupa angka.")                                #Menampilkan pesan bahwa input harus berupa angka.
