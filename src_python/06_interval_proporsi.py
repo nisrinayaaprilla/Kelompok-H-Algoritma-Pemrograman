@@ -7,59 +7,59 @@ Original file is located at
     https://colab.research.google.com/drive/1e0e6Ur6LBIzZWSNWDVRPo-A4mPi5P1px
 """
 
-import math
+import math                                                                        #Mengimpor modul math untuk menggunakan fungsi matematika seperti akar kuadrat (sqrt).
 
-def cari_nilai_kritis(tingkat_signifikansi):
-    if tingkat_signifikansi == 0.10:
-        return 1.645
-    elif tingkat_signifikansi == 0.05:
-        return 1.96
-    else:
-        return None
+def cari_nilai_kritis(tingkat_signifikansi):                                       #Mendefinisikan fungsi untuk menentukan nilai kritis (Z) berdasarkan tingkat signifikansi.
+    if tingkat_signifikansi == 0.10:                                               #Memeriksa apakah tingkat signifikansi yang dimasukkan adalah 0,10.
+        return 1.645                                                               #Mengembalikan nilai kritis Z = 1,645 untuk α = 0,10.
+    elif tingkat_signifikansi == 0.05:                                             #Memeriksa apakah tingkat signifikansi yang dimasukkan adalah 0,05.
+        return 1.96                                                                #Mengembalikan nilai kritis Z = 1,96 untuk α = 0,05.
+    else:                                                                          #Menjalankan perintah jika nilai α tidak sesuai ketentuan.                                                                     
+        return None                                                                #Mengembalikan nilai kosong sebagai tanda input tidak valid.
 
-def hitung_batas_kesalahan(proporsi_sampel, nilai_kritis, ukuran_sampel):
-    return nilai_kritis * math.sqrt(
-        (proporsi_sampel * (1 - proporsi_sampel)) / ukuran_sampel
+def hitung_batas_kesalahan(proporsi_sampel, nilai_kritis, ukuran_sampel):          #Mendefinisikan fungsi untuk menghitung margin of error (batas kesalahan).
+    return nilai_kritis * math.sqrt(                                               #Menghitung batas kesalahan menggunakan rumus interval kepercayaan proporsi.
+        (proporsi_sampel * (1 - proporsi_sampel)) / ukuran_sampel                  #Menghitung varians proporsi sampel, yaitu bagian dari rumus standar error untuk interval kepercayaan proporsi.
     )
 
-def hitung_interval_kepercayaan(proporsi_sampel, tingkat_signifikansi, ukuran_sampel):
+def hitung_interval_kepercayaan(proporsi_sampel, tingkat_signifikansi, ukuran_sampel): #Mendefinisikan fungsi utama untuk menghitung interval kepercayaan.
 
-    if proporsi_sampel < 0 or proporsi_sampel > 1:
-        return "Error: Nilai proporsi harus antara 0 dan 1."
+    if proporsi_sampel < 0 or proporsi_sampel > 1:                                     #Memeriksa apakah nilai proporsi berada di luar rentang 0 sampai 1.
+        return "Error: Nilai proporsi harus antara 0 dan 1."                           #Mengembalikan pesan kesalahan jika proporsi tidak valid.
 
-    nilai_kritis = cari_nilai_kritis(tingkat_signifikansi)
+    nilai_kritis = cari_nilai_kritis(tingkat_signifikansi)                             #Memanggil fungsi untuk mendapatkan nilai kritis sesuai α.
 
-    if nilai_kritis is None:
-        return "Error: Tingkat signifikansi hanya boleh 0.10 atau 0.05."
-
-    batas_kesalahan = hitung_batas_kesalahan(
-        proporsi_sampel,
-        nilai_kritis,
-        ukuran_sampel
+    if nilai_kritis is None:                                                           #Memeriksa apakah nilai kritis berhasil diperoleh.
+        return "Error: Tingkat signifikansi hanya boleh 0.10 atau 0.05."               #Mengembalikan pesan kesalahan jika α tidak sesuai.
+    
+    batas_kesalahan = hitung_batas_kesalahan(                                          #Memanggil fungsi untuk menghitung margin of error.
+        proporsi_sampel,                                                               #Menyimpan nilai proporsi sampel (p̂), misalnya 0,6 atau 60%. Digunakan dalam perhitungan standar error.
+        nilai_kritis,                                                                  #Menyimpan nilai Z sesuai tingkat signifikansi, misalnya 1,645 (α = 0,10) atau 1,96 (α = 0,05). Digunakan untuk menentukan tingkat kepercayaan interval.
+        ukuran_sampel                                                                  #Menyimpan jumlah data atau responden (n). Digunakan dalam penyebut rumus standar error.
     )
 
-    interval_minimum = proporsi_sampel - batas_kesalahan
-    interval_maksimum = proporsi_sampel + batas_kesalahan
+    interval_minimum = proporsi_sampel - batas_kesalahan                               #Menghitung batas bawah interval kepercayaan.
+    interval_maksimum = proporsi_sampel + batas_kesalahan                              #Menghitung batas atas interval kepercayaan.
 
-    return interval_minimum, interval_maksimum
+    return interval_minimum, interval_maksimum                                         #Mengembalikan hasil interval kepercayaan dalam bentuk tuple.
 
 
 # Program Utama
-nilai_proporsi = float(input("Masukkan nilai proporsi sampel: "))
-alpha_input = float(input("Masukkan tingkat signifikansi (0.10 atau 0.05): "))
-jumlah_data = int(input("Masukkan ukuran sampel: "))
+nilai_proporsi = float(input("Masukkan nilai proporsi sampel: "))                      #Membaca input proporsi sampel dari pengguna dan mengubahnya menjadi tipe data float.
+alpha_input = float(input("Masukkan tingkat signifikansi (0.10 atau 0.05): "))         #Membaca input tingkat signifikansi dari pengguna dan mengubahnya menjadi float.
+jumlah_data = int(input("Masukkan ukuran sampel: "))                                   #Membaca input ukuran sampel dan mengubahnya menjadi integer.
 
-hasil_perhitungan = hitung_interval_kepercayaan(
+hasil_perhitungan = hitung_interval_kepercayaan(                                       #Memanggil fungsi utama untuk menghitung interval kepercayaan.
     nilai_proporsi,
     alpha_input,
     jumlah_data
 )
 
-if isinstance(hasil_perhitungan, str):
-    print(hasil_perhitungan)
-else:
-    batas_awal, batas_akhir = hasil_perhitungan
-    print(
+if isinstance(hasil_perhitungan, str):                                                 #Memeriksa apakah hasil berupa pesan error (string). --> #isinstance() berfungsi sebagai percabangan untuk membedakan apakah hasil yang diterima adalah pesan kesalahan (string) atau hasil perhitungan interval kepercayaan (tuple).
+    print(hasil_perhitungan)                                                           #Menampilkan pesan error jika terjadi kesalahan input.
+else:                                                                                  #Menjalankan perintah jika perhitungan berhasil dilakukan.
+    batas_awal, batas_akhir = hasil_perhitungan                                        #Mengambil batas bawah dan batas atas dari hasil perhitungan.
+    print(                                                                             #Menampilkan interval kepercayaan dengan 4 angka di belakang koma.
         f"Interval Kepercayaan = ({batas_awal:.4f}, {batas_akhir:.4f})"
     )
 
