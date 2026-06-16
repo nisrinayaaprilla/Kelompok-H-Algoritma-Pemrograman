@@ -7,7 +7,7 @@ Original file is located at
     https://colab.research.google.com/drive/1L1SofaLNYPGc0VK5rwxuOQAMJSiba8bI
 """
 
-# Program 2 - Membuat objek string K1 sampai K4
+# Program 2 - Membuat objek string Kata1 sampai Kata4
 
 Kata1 = "Saya tak 'kan menyerah."
 Kata2 = 'Ia berkata, "Aku menyayangimu."'
