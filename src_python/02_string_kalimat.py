@@ -9,12 +9,12 @@ Original file is located at
 
 # Program 2 - Membuat objek string K1 sampai K4
 
-K1 = "Saya tak 'kan menyerah."
-K2 = 'Ia berkata, "Aku menyayangimu."'
-K3 = "\"Coba jelaskan pengertian 'cross-validation' dalam Machine Learning!\""
-K4 = "Surat keputusan itu bernomor 62/UN.34/19/2023."
+Kata1 = "Saya tak 'kan menyerah."
+Kata2 = 'Ia berkata, "Aku menyayangimu."'
+Kata3 = "\"Coba jelaskan pengertian 'cross-validation' dalam Machine Learning!\""
+Kata4 = "Surat keputusan itu bernomor 62/UN.34/19/2023."
 
-print(K1)
-print(K2)
-print(K3)
-print(K4)
+print(Kata1)
+print(Kata2)
+print(Kata3)
+print(Kata4)
