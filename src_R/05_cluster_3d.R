@@ -1,4 +1,3 @@
-#Input untuk memberi nilai pada cluster a,b, dan c
 a <- c(2, 1, 3)                                             #Menyimpan koordinat pusat cluster a.
 b <- c(1, -4, 6)                                            #Menyimpan koordinat pusat cluster b.
 c <- c(-2, 3, -2)                                           #Menyimpan koordinat pusat cluster c.
