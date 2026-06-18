@@ -47,7 +47,7 @@ else:                                                                           
   nama_bulan = "Bulan Tidak Valid"                                                            #Menentukan bahwa bulan tidak valid jika semua kondisi salah
 
 # Output
-print("Tanggal Lahir ASN:", Tanggal, nama_bulan, Tahun)                                       #Menampilkan tanggal lahir ASN yang terdiri dari tanggal, bulan, dan tahun
+print("Tanggal Lahir ASN:", Tanggal, nama_bulan, Tahun)                                       #Menampilkan tanggal lahir ASN yang terdiri dari tanggal, nama bulan, dan tahun
 
 # Uji Kedua
 # Input NIP ASN
