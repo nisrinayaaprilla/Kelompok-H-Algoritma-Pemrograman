@@ -9,45 +9,45 @@ Original file is located at
 
 # Uji Pertama
 # Input NIP ASN
-NIP = input("Masukkan NIP ASN: ")
+NIP = input("Masukkan NIP ASN: ")                                                             #Memasukkan NIP ASN yang akan dicek tanggal lahirnya
 if not NIP.isdigit():
-  raise ValueError("NIP Harus Berupa Angka")
+  raise ValueError("NIP Harus Berupa Angka")                                                  #Memunculkan error jika NIP yang dimasukkan bukan berupa angka
 
 # Mengambil tahun, bulan, dan tanggal lahir
-Tahun = NIP[0:4]
-Bulan = NIP[4:6]
-Tanggal = NIP[6:8]
+Tahun = NIP[0:4]                                                                              #Mengambil digit ke 1 sampai 4 dari NIP sebagai tahun lahir ASN
+Bulan = NIP[4:6]                                                                              #Mengambil digit ke 5 dan 6 dari NIP sebagai bulan lahir ASN
+Tanggal = NIP[6:8]                                                                            #Mengambil digit ke 7 dan 8 dari NIP sebagai tanggal lahir ASN
 
 # Percabangan untuk nama bulan
-if Bulan == "01":
-    nama_bulan = "Januari"
-elif Bulan == "02":
-    nama_bulan = "Februari"
-elif Bulan == "03":
-    nama_bulan = "Maret"
-elif Bulan == "04":
-    nama_bulan = "April"
-elif Bulan == "05":
-    nama_bulan = "Mei"
-elif Bulan == "06":
-    nama_bulan = "Juni"
-elif Bulan == "07":
-    nama_bulan = "Juli"
-elif Bulan == "08":
-    nama_bulan = "Agustus"
-elif Bulan == "09":
-    nama_bulan = "September"
-elif Bulan == "10":
-    nama_bulan = "Oktober"
-elif Bulan == "11":
-    nama_bulan = "November"
-elif Bulan == "12":
-    nama_bulan = "Desember"
-else:
-  nama_bulan = "Bulan Tidak Valid"
+if Bulan == "01":                                                                             #Memeriksa kondisi apakah bulan adalah bulan 01
+    nama_bulan = "Januari"                                                                    #Menentukan bahwa nama bulan adalah Januari jika bulan adalah 01
+elif Bulan == "02":                                                                           #Memeriksa kondisi apakah bulan adalah bulan 02 jika kondisi sebelumnya salah
+    nama_bulan = "Februari"                                                                   #Menentukan bahwa nama bulan adalah Februari jika bulan 02   
+elif Bulan == "03":                                                                           #Memeriksa kondisi apakah bulan adalah bulan 03 jika kondisi sebelumnya salah
+    nama_bulan = "Maret"                                                                      #Menentukan bahwa nama bulan adalah Maret jika bulan 03
+elif Bulan == "04":                                                                           #Memeriksa kondisi apakah bulan adalah bulan 04 jika kondisi sebelumnya salah
+    nama_bulan = "April"                                                                      #Menentukan bahwa nama bulan adalah April jika bulan 04
+elif Bulan == "05":                                                                           #Memeriksa apakah bulan adalah bulan 05 jika kondisi sebelumnya salah
+    nama_bulan = "Mei"                                                                        #Menentukan bahwa nama bulan adalah Mei jika bulan 05
+elif Bulan == "06":                                                                           #memeriksa apakah bulan adalah bulan 06 jika kondisi sebelumnya salah
+    nama_bulan = "Juni"                                                                       #Menentukan bahwa nama bulan adalah Juni jika bulan 06
+elif Bulan == "07":                                                                           #Memeriksa apakah bulan adalah bulan 07 jika kondisi sebelumnya salah
+    nama_bulan = "Juli"                                                                       #Menentukan bahwa nama bulan adalah Juli jika bulan 07
+elif Bulan == "08":                                                                           #Memeriksa apakah bulan adalah bulan 08 jika kondisi sebelumnya salah
+    nama_bulan = "Agustus"                                                                    #Menentukan bahwa nama bulan adalah Agustus jika bulan 08
+elif Bulan == "09":                                                                           #Memeriksa apakah bulan adalah bulan 09 jika kondisi sebelumnya salah
+    nama_bulan = "September"                                                                  #Menentukan bahwa nama bulan adalah September jika bulan 09
+elif Bulan == "10":                                                                           #Memeriksa apakah bulan adalah bulan 10 jika kondisi sebelumnya salah 
+    nama_bulan = "Oktober"                                                                    #Menentukan bahwa nama bulan adalah Oktober jika bulan 10
+elif Bulan == "11":                                                                           #Memeriksa apakah bulan adalah bulan 11 jika kondisi sebelumnya salah
+    nama_bulan = "November"                                                                   #Menentukan bahwa nama bulan adalah November jika bulan 11
+elif Bulan == "12":                                                                           #Memeriksa apakah bulan adalah bulan 12 jika kondisi sebelumnya salah
+    nama_bulan = "Desember"                                                                   #Menentukan bahwa nama bulan adalah Desember jika bulan 12
+else:                                                                                         #Menjalankan perintah jika semua kondisi salah
+  nama_bulan = "Bulan Tidak Valid"                                                            #Menentukan bahwa bulan tidak valid jika semua kondisi salah
 
 # Output
-print("Tanggal Lahir ASN:", Tanggal, nama_bulan, Tahun)
+print("Tanggal Lahir ASN:", Tanggal, nama_bulan, Tahun)                                       #Menampilkan tanggal lahir ASN yang terdiri dari tanggal, bulan, dan tahun
 
 # Uji Kedua
 # Input NIP ASN
