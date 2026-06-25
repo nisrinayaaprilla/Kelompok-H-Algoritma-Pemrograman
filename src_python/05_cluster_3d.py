@@ -30,7 +30,7 @@ try:                                                                  #Memulai b
 
     if jarak_a < jarak_b and jarak_a < jarak_c:                       #Memeriksa apakah jarak ke cluster a merupakan yang paling kecil dibandingkan dua cluster lainnya.
         cluster = "A"                                                 #Menetapkan bahwa titik u termasuk cluster a karena memiliki jarak terdekat.
-    elif jarak_b < jarak_a and jarak_b < jarak_c:                     ##Memeriksa apakah jarak ke cluster b merupakan yang paling kecil dibandingkan dua cluster lainnya. 
+    elif jarak_b < jarak_a and jarak_b < jarak_c:                     #Memeriksa apakah jarak ke cluster b merupakan yang paling kecil dibandingkan dua cluster lainnya. 
         cluster = "B"                                                 #Menetapkan bahwa titik u termasuk cluster b karena memiliki jarak terdekat.
     else:                                                             #Kemungkinan kondisi selain 2 kondisi lainnya
         cluster = "C"                                                 #Menetapkan bahwa titik u termasuk cluster c karena memiliki jarak terdekat.
